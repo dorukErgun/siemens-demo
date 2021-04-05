@@ -1,6 +1,6 @@
 <?php 
     $user = "sql11403588@ec2-52-8-112-233.us-west-1.compute.amazonaws.com";
-    $pwd = "Drk310121.";
+    $pwd = "852456753951";
     $host = "sql11.freemysqlhosting.net";
     $database = "sql11403588";
 
