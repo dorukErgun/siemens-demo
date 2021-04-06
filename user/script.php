@@ -26,7 +26,7 @@
             request = '$request'
             ";
             mysqli_query($db, $sql);
-            header("location: try.php");
+            header("location: index.php");
         break;
 
         case 'add_danger': 
@@ -44,7 +44,7 @@
             danger = '$danger'
             ";
             mysqli_query($db, $sql);
-            header("location: try.php");
+            header("location: index.php");
         break;
 
         case 'add_permission_request': 
@@ -66,7 +66,7 @@
             comments = '$comments'
             ";
             mysqli_query($db, $sql);
-            header("location: try.php");
+            header("location: index.php");
         break;
     }
     
