@@ -236,57 +236,48 @@
         <?php include("../components/footer.php") ?>      
         <script src="../scripts/sidebar.js" ></script>
         <script>
-        Highcharts.chart('container', {
-            chart: {
-                type: 'pyramid'
-            },
-            title: {
-                text: 'Sales pyramid',
-                x: -50
-            },
-            plotOptions: {
-                series: {
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b> ({point.y:,.0f})',
-                        softConnector: true
-                    },
-                    center: ['40%', '50%'],
-                    width: '80%'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            series: [{
-                name: 'Unique users',
-                data: [
-                    ['Website visits',      4],
-                    ['Downloads',            1],
-                    ['Requested price list', 6]
-                ]
-            }],
-
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        plotOptions: {
-                            series: {
-                                dataLabels: {
-                                    inside: true
-                                },
-                                center: ['50%', '50%'],
-                                width: '100%'
-                            }
-                        }
-                    }
-                }]
+        <?php 
+            $query_for_dangers = "SELECT danger FROM `dangers` WHERE id=6";
+            $result_for_dangers = mysqli_query($db, $query_for_dangers);
+            $total_for_dangers = mysqli_num_rows($result_for_dangers); 
+        ?>
+    var text = "<?php echo mysqli_fetch_assoc($total_for_dangers); ?>";
+    var lines = text.split(/[,\. ]+/g),
+        data = Highcharts.reduce(lines, function (arr, word) {
+            var obj = Highcharts.find(arr, function (obj) {
+                return obj.name === word;
+            });
+            if (obj) {
+                obj.weight += 1;
+            } else {
+                obj = {
+                    name: word,
+                    weight: 1
+                };
+                arr.push(obj);
             }
-        });
-    </script>
+            return arr;
+        }, []);
+
+    Highcharts.chart('container', {
+        accessibility: {
+            screenReaderSection: {
+                beforeChartFormat: '<h5>{chartTitle}</h5>' +
+                    '<div>{chartSubtitle}</div>' +
+                    '<div>{chartLongdesc}</div>' +
+                    '<div>{viewTableButton}</div>'
+            }
+        },
+        series: [{
+            type: 'wordcloud',
+            data: data,
+            name: 'Occurrences'
+        }],
+        title: {
+            text: 'Wordcloud of Lorem Ipsum'
+        }
+    });
+        </script>
     
 
     <script>
@@ -384,7 +375,7 @@
 
         series: [
             {
-                name: "Browsers",
+                name: "Requests",
                 colorByPoint: true,
                 data: [
                     {
