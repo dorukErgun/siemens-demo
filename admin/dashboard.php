@@ -171,7 +171,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    ?>
+                                    <?php } ?>
 
                                     <?php
                                         //Reading requests db.
@@ -197,7 +197,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    ?>
+                                    <?php } ?>
 
                                     <?php
                                         //Reading requests db.
@@ -223,7 +223,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Distribution of requests, <?php echo date(); ?>'
+                text: 'Distribution of requests, <?php date('Y-m-d'); ?>'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -377,7 +377,7 @@
             type: 'column'
         },
         title: {
-            text: 'Requests chart, <?php echo date(); ?>'
+            text: 'Requests chart, <?php date('Y-m-d'); ?>'
         },
         subtitle: {
             text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
