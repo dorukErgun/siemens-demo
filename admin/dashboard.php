@@ -259,11 +259,11 @@
                 enabled: false
             },
             series: [{
-                name: 'Sent data',
+                name: 'Unique users',
                 data: [
-                    ['Requests',      <?php echo($total_for_requests);?>],
-                    ['Permission Requests',            <?php echo($total_for_permissions);?>],
-                    ['Dangers', <?php echo($total_for_dangers);?>],
+                    ['Website visits',      4],
+                    ['Downloads',            1],
+                    ['Requested price list', 6]
                 ]
             }],
 
