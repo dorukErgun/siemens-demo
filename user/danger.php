@@ -57,7 +57,6 @@
             <button id="close" class="ui button" type="submit">Submit</button>
         </form>
 
-    </form>
 
   </div>
 </div>
