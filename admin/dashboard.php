@@ -330,7 +330,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Distribution of requests, <?php date('Y-m-d'); ?>'
+                text: 'Distribution of requests, <?php echo date('Y-m-d'); ?>'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -377,7 +377,7 @@
             type: 'column'
         },
         title: {
-            text: 'Requests chart, <?php date('Y-m-d'); ?>'
+            text: 'Requests chart, <?php echo date('Y-m-d'); ?>'
         },
         subtitle: {
             text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
