@@ -240,8 +240,9 @@
             $query_for_dangers = "SELECT danger FROM `dangers` WHERE id=6";
             $result_for_dangers = mysqli_query($db, $query_for_dangers);
             $total_for_dangers = mysqli_num_rows($result_for_dangers); 
+            $row = mysqli_fetch_assoc($total_for_dangers);
         ?>
-    var text = "<?php echo mysqli_fetch_assoc($total_for_dangers); ?>";
+    var text = "<?php echo $row['danger']; ?>";
     var lines = text.split(/[,\. ]+/g),
         data = Highcharts.reduce(lines, function (arr, word) {
             var obj = Highcharts.find(arr, function (obj) {
