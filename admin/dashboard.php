@@ -291,18 +291,22 @@
                 }
             },
             series: [{
-                name: 'USA',
-                data: [null, null, null, null, null, null, null, null, null, null,
-                    5, 25, 50, 120, 150, 200, 426, 660, 869, 1060,
-                    1605, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,
-                    11643, 13092, 14478, 15915, 17385, 19055, 21205, 23044, 25393, 27935,
-                    30062, 32049, 33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000,
-                    37000, 35000, 33000, 31000, 29000, 27000, 25000, 24000, 23000, 22000,
-                    21000, 20000, 19000, 18000, 18000, 17000, 16000, 15537, 14162, 12787,
-                    12600, 11400, 5500, 4512, 4502, 4502, 4500, 4500
+                name: 'Dangers',
+                data: [<?php 
+                        //Reading requests db.
+                        $query_for_dangers = "SELECT * FROM dangers";
+                        $result_for_dangers = mysqli_query($db, $query_for_dangers);
+                        $total_for_dangers = mysqli_num_rows($result_for_dangers);
+                        $row_for_dangers = mysqli_fetch_assoc($result_for_dangers); 
+
+                        while($row = mysqli_fetch_assoc($result_for_dangers)){
+                            echo $row['dte'];
+                            echo ",";
+                        }
+                    ?>
                 ]
             }, {
-                name: 'USSR/Russia',
+                name: 'Requests',
                 data: [
                     <?php 
                         //Reading requests db.
@@ -312,7 +316,7 @@
                         $row_for_requests = mysqli_fetch_assoc($result_for_requests); 
 
                         while($row = mysqli_fetch_assoc($result_for_requests)){
-                            echo $row['id'];
+                            echo $row['dte'];
                             echo ",";
                         }
                     ?>
@@ -420,17 +424,17 @@
                 colorByPoint: true,
                 data: [
                     {
-                        name: "Chrome",
+                        name: "Requests",
                         y: <?php echo($total_for_requests);?>,
-                        drilldown: "Chrome"
+                        drilldown: "Request"
                     },
                     {
-                        name: "Firefox",
+                        name: "Dangers",
                         y: <?php echo($total_for_dangers);?>,
                         drilldown: "Firefox"
                     },
                     {
-                        name: "Internet Explorer",
+                        name: "Permission Requests",
                         y: <?php echo($total_for_permissions);?>,
                         drilldown: "Internet Explorer"
                     },
