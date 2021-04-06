@@ -88,9 +88,11 @@
                                 <div class="description">Possible dangers around factory</div>
                             </div>
                             <div class="extra content">
+                                <a href="dangers.php">
                                 <div class="ui two buttons">
                                     <div class="ui red button">More Info</div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -105,9 +107,7 @@
                                 <figure class="highcharts-figure">
                                     <div id="container"></div>
                                     <p class="highcharts-description">
-                                        Demonstrating a basic area chart, also known as a mountain chart.
-                                        Area charts are similar to line charts, but commonly used to visualize
-                                        volumes.
+                                        Mountain charts shows requests and days relationship.
                                     </p>
                                 </figure>
                             </div>
@@ -120,9 +120,7 @@
                                 <figure class="highcharts-figure">
                                     <div id="container1"></div>
                                     <p class="highcharts-description">
-                                        Pie charts are very popular for showing a compact overview of a
-                                        composition or comparison. While they can be harder to read than
-                                        column charts, they remain a popular choice for small datasets.
+                                        Pie chart shows the requests, permission requests and danger indications distributions.
                                     </p>
                                 </figure>
                             </div>
@@ -135,9 +133,7 @@
                                 <figure class="highcharts-figure">
                                     <div id="container2"></div>
                                     <p class="highcharts-description">
-                                        Chart showing browser market shares. Clicking on individual columns
-                                        brings up more detailed data. This chart makes use of the drilldown
-                                        feature in Highcharts to easily switch between datasets.
+                                        Chart shows the numbers of requests in a diffrent way.
                                     </p>
                                 </figure>
                             </div>
@@ -171,17 +167,17 @@
                                         //$row_for_dangers = mysqli_fetch_assoc($result_for_dangers);
                                     ?>
                                     <?php while($row = mysqli_fetch_assoc($result_for_requests)){ ?>
-                                    <div class="event">
-                                        <div class="label">
-                                            <i class="user icon"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="summary">
-                                                <a class="user">
-                                                <?php echo $row['fname']; echo " "; echo $row['lname'] ?>
-                                                </a> has a request
-                                                <div class="date">
-                                                Empty.
+                                        <div class="event">
+                                            <div class="label">
+                                                <i class="user icon"></i>
+                                            </div>
+                                            <div class="content">
+                                                <div class="summary">
+                                                    <a class="user">
+                                                    <?php echo $row['fname']; echo " "; echo $row['lname'] ?>
+                                                    </a> has a request
+                                                    <div class="date">
+                                                    Empty.
                                                 </div>
                                             </div>
                                             <div class="meta">
@@ -189,15 +185,27 @@
                                                 <i class="angle right icon"></i> Go to requests
                                                 </a>
                                             </div>
-                                            </div>
+                                        </div>
                                         </div>
                                         <div class="event">
-                                            <div class="label">
-                                            <img src="/images/avatar/small/helen.jpg">
-                                            </div>
                                             <div class="content">
                                             <div class="summary">
                                                 <a><?php echo $row['fname']; echo " "; echo $row['lname']; ?></a> indicated <a>a danger!</a>
+                                                <div class="date">
+                                                empty
+                                                </div>
+                                            </div>
+                                            <div class="meta">
+                                                <a class="like">
+                                                <i class="angle right icon"></i> Go to dangers
+                                                </a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="event">
+                                            <div class="content">
+                                            <div class="summary">
+                                                <a><?php echo $row['fname']; echo " "; echo $row['lname']; ?></a> has a permission request</a>
                                                 <div class="date">
                                                 empty
                                                 </div>
