@@ -153,18 +153,32 @@
                                         $result_for_permissions = mysqli_query($db, $query_for_permissions);
                                         $total_for_permissions = mysqli_num_rows($result_for_permissions);
                                         //$row_for_permissions = mysqli_fetch_assoc($result_for_permissions);
+                                    ?>
+                                    <?php while($row = mysqli_fetch_assoc($result_for_permissions)){ ?>
+                                        <div class="event">
+                                            <div class="label">
+                                                <i class="user icon"></i>
+                                            </div>
+                                            <div class="content">
+                                                <div class="summary">
+                                                    <a class="user"><?php echo $row['fname']; echo " "; echo $row['lname'] ?> </a> has a permission request.
+                                                    <div class="date"> <?php echo $row['dte']; ?> </div>
+                                                </div>
+                                                <div class="meta">
+                                                    <a href="permissionrequests.php" class="like">
+                                                        <i class="angle right icon"></i> Go to permission requests
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ?>
 
+                                    <?php
                                         //Reading requests db.
                                         $query_for_requests = "SELECT * FROM requests";
                                         $result_for_requests = mysqli_query($db, $query_for_requests);
                                         $total_for_requests = mysqli_num_rows($result_for_requests);
                                         //$row_for_requests = mysqli_fetch_assoc($result_for_requests);
-
-                                        //Reading requests db.
-                                        $query_for_dangers = "SELECT * FROM dangers";
-                                        $result_for_dangers = mysqli_query($db, $query_for_dangers);
-                                        $total_for_dangers = mysqli_num_rows($result_for_dangers);
-                                        //$row_for_dangers = mysqli_fetch_assoc($result_for_dangers);
                                     ?>
                                     <?php while($row = mysqli_fetch_assoc($result_for_requests)){ ?>
                                         <div class="event">
@@ -173,59 +187,49 @@
                                             </div>
                                             <div class="content">
                                                 <div class="summary">
-                                                    <a class="user">
-                                                    <?php echo $row['fname']; echo " "; echo $row['lname'] ?>
-                                                    </a> has a request
-                                                    <div class="date">
-                                                    Empty.
+                                                    <a class="user"><?php echo $row['fname']; echo " "; echo $row['lname'] ?> </a> has a request.
+                                                    <div class="date"> <?php echo $row['dte']; ?> </div>
+                                                </div>
+                                                <div class="meta">
+                                                    <a href="requests.php" class="like">
+                                                        <i class="angle right icon"></i> Go to requests
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="meta">
-                                                <a class="like">
-                                                <i class="angle right icon"></i> Go to requests
-                                                </a>
-                                            </div>
                                         </div>
-                                        </div>
+                                    ?>
+
+                                    <?php
+                                        //Reading requests db.
+                                        $query_for_dangers = "SELECT * FROM dangers";
+                                        $result_for_dangers = mysqli_query($db, $query_for_dangers);
+                                        $total_for_dangers = mysqli_num_rows($result_for_dangers);
+                                        //$row_for_dangers = mysqli_fetch_assoc($result_for_dangers);
+                                    ?>
+                                    <?php while($row = mysqli_fetch_assoc($result_for_dangers)){ ?>
                                         <div class="event">
+                                            <div class="label">
+                                                <i class="user icon"></i>
+                                            </div>
                                             <div class="content">
-                                            <div class="summary">
-                                                <a><?php echo $row['fname']; echo " "; echo $row['lname']; ?></a> indicated <a>a danger!</a>
-                                                <div class="date">
-                                                empty
+                                                <div class="summary">
+                                                    <a class="user"><?php echo $row['fname']; echo " "; echo $row['lname'] ?> </a> indicated a danger!
+                                                    <div class="date"> <?php echo $row['dte']; ?> </div>
+                                                </div>
+                                                <div class="meta">
+                                                    <a href="dangers.php" class="like">
+                                                        <i class="angle right icon"></i> Go to dangers
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="meta">
-                                                <a class="like">
-                                                <i class="angle right icon"></i> Go to dangers
-                                                </a>
-                                            </div>
-                                            </div>
                                         </div>
-                                        <div class="event">
-                                            <div class="content">
-                                            <div class="summary">
-                                                <a><?php echo $row['fname']; echo " "; echo $row['lname']; ?></a> has a permission request</a>
-                                                <div class="date">
-                                                empty
-                                                </div>
-                                            </div>
-                                            <div class="meta">
-                                                <a class="like">
-                                                <i class="angle right icon"></i> Go to dangers
-                                                </a>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        </div>
-                                    </div>
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -326,7 +330,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Browser market shares in January, 2018'
+                text: 'Distribution of requests, <?php echo date(); ?>'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -373,7 +377,7 @@
             type: 'column'
         },
         title: {
-            text: 'Browser market shares. January, 2018'
+            text: 'Requests chart, <?php echo date(); ?>'
         },
         subtitle: {
             text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
