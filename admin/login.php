@@ -8,7 +8,7 @@
 
   <!-- Site Properties -->
   <?php include("../components/metadata.php") ?>
-  <title>Login Example - Semantic</title>
+  <title>Login</title>
 
   <style type="text/css">
     body {
