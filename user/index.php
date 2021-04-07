@@ -121,7 +121,7 @@
       <div class="row">
         <div class="column">
           <div class="ui divider"></div>
-          <footer>&copy; 2017 Company, Inc.</footer>
+          <footer>&copy; 2021 Company, Inc.</footer>
         </div>
       </div>
     </div>
